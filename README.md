@@ -5,12 +5,6 @@
 
 #### By Jack Dunning, Krista Rutz, Steven Fleming and Jiwon Han
 
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
-![LastCommit](https://github.com/jiwon-seattle/Survey-react-redux-firebase.git
-![Languages](https://github.com/jiwon-seattle/Survey-react-redux-firebase.git
-[![MIT license](https://img.shields.io/badge/License-MIT-orange.svg)](https://lbesson.mit-license.org/)
-
-
 ## 1. User Flow
 
 This is a survey site that user is able to create new surveys while other users should have the ability to fill out those surveys.
