@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { withFirestore, isLoaded } from "react-redux-firebase";
 import CreateSurveyForm from "./CreateSurveyForm";
 import SurveyList from "./SurveyList";
-//import SurveyResult from "./SurveyResult";
+import SurveyResult from "./SurveyResult";
 //import EditSurveyForm from "./EditSurveyForm";
 import Survey from "./Survey";
 
@@ -53,7 +53,7 @@ class SurveyControl extends React.Component {
 
   handleCancelClick = () => {
     this.setState({
-      createSurveyFormVisible: false, editSurveyFormVisible:false, respondToSurveyFormVisible:false, selectedSurvey: null,
+      createSurveyFormVisible: false, editSurveyFormVisible:false, respondToSurveyFormVisible:false, selectedSurvey: null, surveyResultsVisible:false,
     })
   }
 
@@ -61,7 +61,12 @@ class SurveyControl extends React.Component {
     if (this.state.editSurveyFormVisible){
       //return editSurveyForm
     } else if (this.state.surveyResultsVisible) {
-      // return <SurveyResult survey={this.state.selectedSurvey}/>
+      return (
+        <>
+          <button onClick={this.handleCancelClick}>Back to List</button>
+          <SurveyResult survey={this.state.selectedSurvey}/>
+        </>
+        )
     } else if (this.state.selectedSurvey != null){
       return (
         <Survey

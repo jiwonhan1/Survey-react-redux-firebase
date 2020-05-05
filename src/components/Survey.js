@@ -6,7 +6,7 @@ import {useFirestore } from "react-redux-firebase";
 function Survey(props) {
 
   const firestore = useFirestore();
-  const {survey, surveyClicked} = props;
+  const {survey} = props;
   // delete survey button
 
   // if (survey is published ) { show this survey form, and show button to survey results } else { show buttons to edit/publish}
@@ -28,17 +28,20 @@ function Survey(props) {
         <h2> Take {survey.title}!</h2>
         <hr />
         <form onSubmit={handleSurveyResponseSubmission}>
+          <div className="form-group">
           <label>
             <b> {survey.q1} </b>
           </label>
           <input
+            className="form-control"
             type="range"
             min="1"
             max="5"
-            value="3"
+            defaultValue="3"
             class="slider"
             id="r1"
           />
+          </div>
 
           <label>
             <b> {survey.q2}</b>
@@ -47,7 +50,7 @@ function Survey(props) {
             type="range"
             min="1"
             max="5"
-            value="3"
+            defaultValue="3"
             class="slider"
             id="r2"
           />
@@ -59,7 +62,7 @@ function Survey(props) {
             type="range"
             min="1"
             max="5"
-            value="3"
+            defaultValue="3"
             class="slider"
             id="r3"
           />
@@ -71,7 +74,7 @@ function Survey(props) {
             type="range"
             min="1"
             max="5"
-            value="3"
+            defaultValue="3"
             class="slider"
             id="r4"
           />

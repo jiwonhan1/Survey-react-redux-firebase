@@ -7,12 +7,11 @@ function SurveyCard(props){
   return (
     <React.Fragment>
       <div onClick={() => whenSurveyClicked(survey.id)}>
-      <h1>Survey Card</h1>
-      <h3>{survey.title}</h3>
-      <p>{survey.q1}</p>
+      <h1><small>survey:</small> {survey.title}</h1>
+      {/* <p>{survey.q1}</p>
       <p>{survey.q2}</p>
       <p>{survey.q3}</p>
-      <p>{survey.q4}</p>
+      <p>{survey.q4}</p> */}
       <hr /> 
       </div>
     </React.Fragment>

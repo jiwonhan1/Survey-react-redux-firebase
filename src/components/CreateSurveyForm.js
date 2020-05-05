@@ -19,7 +19,8 @@ function CreateSurveyForm(props) {
         q1: event.target.q1.value,
         q2: event.target.q2.value,
         q3: event.target.q3.value,
-        q4: event.target.q4.value
+        q4: event.target.q4.value,
+        timeSubmitted: firestore.FieldValue.serverTimestamp()
       }
     )
   }
