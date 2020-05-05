@@ -66,7 +66,7 @@ class SurveyControl extends React.Component {
       return (
         <Survey
           survey={this.state.selectedSurvey}
-          handleAddingSurveyResponse={this.handleAddingSurveyResponse}
+          onSurveyResponseSubmit={this.handleAddingSurveyResponse}
         />
       );
     } else if (this.state.createSurveyFormVisible) {

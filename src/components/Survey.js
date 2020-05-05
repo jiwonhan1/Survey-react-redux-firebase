@@ -25,7 +25,6 @@ function Survey(props) {
 
   return (
     <React.Fragment>
-      <div onClick={() => surveyClicked(props.id)}>
         <h2> Take {survey.title}!</h2>
         <hr />
         <form onSubmit={handleSurveyResponseSubmission}>
@@ -78,7 +77,6 @@ function Survey(props) {
           />
           <button type="submit">Submit responses </button>
         </form>
-      </div>
     </React.Fragment>
   );
 }
@@ -86,7 +84,6 @@ function Survey(props) {
 Survey.propTypes = {
   survey: PropTypes.object,
   onSurveyResponseSubmit: PropTypes.func,
-  surveyClicked: PropTypes.func,
 }
 
 export default Survey;

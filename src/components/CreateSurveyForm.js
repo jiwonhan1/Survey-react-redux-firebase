@@ -37,22 +37,22 @@ function CreateSurveyForm(props) {
         <label>
           <b>Question 1 </b>
         </label>
-        <input type="text" name="Question1" placeholder="first Question" />
+        <input type="text" name="q1" placeholder="first Question" />
 
         <label>
           <b>Question 2 </b>
         </label>
-        <input type="text" name="Question2" placeholder="second Question" />
+        <input type="text" name="q2" placeholder="second Question" />
 
         <label>
           <b>Question 3 </b>
         </label>
-        <input type="text" name="Question3" placeholder="third Question" />
+        <input type="text" name="q3" placeholder="third Question" />
 
         <label>
           <b>Question 4 </b>
         </label>
-        <input type="text" name="Question4" placeholder="fourth Question" />
+        <input type="text" name="q4" placeholder="fourth Question" />
         <button type='submit'>Add Survey</button>
       </form>
     </>
