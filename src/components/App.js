@@ -5,25 +5,26 @@ import SurveyControl from "./SurveyControl";
 import './App.css';
 import SignIn from "./Signin";
 //import SignIn from "./SignIn";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Router, Route, NavLink, Switch } from 'react-router-dom';
+import history from '../history';
 
 function App() {
   return (
-    <Router>
-    <div className="container">
-      <Header />
-      <Switch>
-        <Route path = "/signin">
-          <SignIn />
-        </Route>
-        <Route path = "/">
-          <SurveyControl />
-        </Route>
-      </Switch>
-      <Footer/>
-    </div>
+    <Router history ={history}>
+      <div className="container">
+        <Header/>
+        <Main/>
+        <Footer/>
+      </div>
     </Router>
   );
 }
+
+const Main = () => (
+  <Switch>
+    <Route exact path='/' component= {SurveyControl}/>
+    <Route exact path='/signin' component={SignIn}/>
+  </Switch>
+)
 
 export default App;

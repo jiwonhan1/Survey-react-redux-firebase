@@ -73,7 +73,7 @@ Try using a library like D3 to visualize data from surveys. This is only recomme
 |-- index.jsx
 ```
 
-**All components were descripted with propTypes**
+**All components were described with propTypes**
 
 ## 2. Development
 
@@ -83,14 +83,14 @@ Try using a library like D3 to visualize data from surveys. This is only recomme
 + [react](https://reactjs.org/), [react-redux](https://react-redux.js.org/) as core stack
 + [Firebase](https://firebase.google.com/)
 + [Firestore](https://firebase.google.com/docs/firestore)
-+ [drawio](https://app.diagrams.net/) for diagram
++ [google slides](https://google.com/slides/about/) for diagram
 + [favicon](https://www.favicon-generator.org/) 
 
 ### To run dev mode locally:
 
 ```bash
   $ git clone https://github.com/jiwon-seattle/Survey-react-redux-firebase.git
-  $ cd the repository
+  $ cd into repository
   $ npm install  
   # After successfull pkg installtion
   $ npm start

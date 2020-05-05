@@ -11,7 +11,7 @@ function SurveyResult(props){
 
   if (isLoaded(responses)) {
     const relevantResponses = responses.filter(response => response.surveyId === survey.id);
-    // could be refractored into 
+
     function getAverageResponse(propertyKey, responseArray) {
       let sum = 0;
       if (responseArray.length < 1 || responseArray === undefined){
@@ -23,21 +23,22 @@ function SurveyResult(props){
       return sum / responseArray.length;
     }
 
-    console.log(getAverageResponse("r1", relevantResponses));
     return (
       <>
-       <h3>Results for Survey, {survey.title}</h3>
-        <p> Question: "{survey.q1}"</p>
-        <p> Average score: {getAverageResponse("r1", relevantResponses)}</p>
+        <h1>{survey.title}</h1>
+        <h3>Results</h3>
+        <p> Total number of responses: {relevantResponses.length}</p>
+        <label className="lead">{survey.q1}</label>
+        <p> Average answer: {getAverageResponse("r1", relevantResponses)}</p>
         <br/>
-        <p> Question: "{survey.q2}"</p>
-        <p> {getAverageResponse("r2", relevantResponses)}</p>
+        <p className="lead">{survey.q2}</p>
+        <p> Average answer: {getAverageResponse("r2", relevantResponses)}</p>
         <br/>
-        <p> Question: "{survey.q3}"</p>
-        <p> {getAverageResponse("r3", relevantResponses)}</p>
+        <p className="lead">{survey.q3}</p>
+        <p> Average answer: {getAverageResponse("r3", relevantResponses)}</p>
         <br/>
-        <p> Question: "{survey.q4}"</p>
-        <p> {getAverageResponse("r4", relevantResponses)}</p>
+        <p className="lead">{survey.q4}</p>
+        <p> Average answer: {getAverageResponse("r4", relevantResponses)}</p>
       </>
       )
   } else {

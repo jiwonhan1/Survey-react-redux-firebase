@@ -24,34 +24,42 @@ function EditSurveyForm(props) {
 
   return (
     <>
-      <button className="btn btn-default" onClick={() => props.onCancelClick()}> &larr; Back</button><h1>{survey.title}</h1>     
-      <h2>Edit this survey</h2>
+      <h1>Edit {survey.title}</h1>     
+      <button onClick={() => props.onCancelClick()}> &larr; Back</button>
       <hr />
       <form onSubmit={handleEditSurveyFormSubmission}>
+        <div className="form-group">
         <label>
           <b>Title </b>
         </label>
-        <input type="text" name="title" defaultValue={survey.title} /><br />
-
+        <input className="form-control" type="text" name="title" defaultValue={survey.title} /><br />
+        </div>
+        <div className="form-group">
         <label>
           <b>Question 1 </b>
         </label>
-        <input type="text" name="q1" defaultValue={survey.q1} /><br />
-
-        <label>
+        <input className="form-control" type="text" name="q1" defaultValue={survey.q1} /><br />
+        </div>
+        <div className="form-group">
+       <label>
           <b>Question 2 </b>
         </label>
-        <input type="text" name="q2" defaultValue={survey.q2} /><br />
+        <input className="form-control" type="text" name="q2" defaultValue={survey.q2} /><br />
+        </div>
 
+        <div className="form-group">
         <label>
           <b>Question 3 </b>
         </label>
-        <input type="text" name="q3" defaultValue={survey.q3} /><br />
+        <input className="form-control" type="text" name="q3" defaultValue={survey.q3} /><br />
+        </div>
 
+        <div className="form-group">
         <label>
           <b>Question 4 </b>
         </label>
-        <input type="text" name="q4" defaultValue={survey.q4} /><br />
+        <input className="form-control" type="text" name="q4" defaultValue={survey.q4} /><br />
+        </div>
 
         <button type="submit">Save changes</button>
       </form>

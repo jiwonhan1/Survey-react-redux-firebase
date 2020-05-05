@@ -28,7 +28,8 @@ function Survey(props) {
     return (
       <React.Fragment>
           <button onClick={() => setSurveyView(!surveyView)}>Exit survey without submitting</button>
-          <h2> Take Survey: <em>{survey.title}</em></h2>
+          <h1> Take Survey: <em>{survey.title}</em></h1>
+          <p className="lead">Slide the bar to the area of the range that best fits your answer.</p>
           <hr />
           <form onSubmit={handleSurveyResponseSubmission}>
             <label>
@@ -48,6 +49,7 @@ function Survey(props) {
               <b> {survey.q2}</b>
             </label>
             <input
+            className="form-control"
               type="range"
               min="1"
               max="5"
@@ -60,6 +62,7 @@ function Survey(props) {
               <b>{survey.q3} </b>
             </label>
             <input
+            className="form-control"
               type="range"
               min="1"
               max="5"
@@ -72,6 +75,7 @@ function Survey(props) {
               <b>{survey.q4}</b>
             </label>
             <input
+            className="form-control"
               type="range"
               min="1"
               max="5"
@@ -86,7 +90,7 @@ function Survey(props) {
   } else {
     return (
     <>
-      <button className="btn btn-default" onClick={() => props.onCancelClick()}> &larr; Back</button><h1>{survey.title}</h1>     
+      <button onClick={() => props.onCancelClick()}> &larr; Back</button><h1>{survey.title}</h1>     
       <button onClick={() => setSurveyView(!surveyView)}>Take survey</button>
       <br />
       <br />

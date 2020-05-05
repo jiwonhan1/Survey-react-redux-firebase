@@ -26,9 +26,9 @@ function CreateSurveyForm(props) {
   }
 
   return (
-    <>
-      <h2>Make your own Survey!</h2>
-      <button onClick={() => props.onCancelClick()}>Back</button>
+    <> 
+      <h1>Make your own Survey!</h1>
+      <button onClick={() => props.onCancelClick()}> &larr; Back</button>
       <hr />
       <form onSubmit={addNewSurveyToFireStore}>
         <div className="form-group">

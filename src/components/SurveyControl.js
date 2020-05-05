@@ -47,15 +47,15 @@ class SurveyControl extends React.Component {
     this.setState({surveyResultsVisible: true});
   }
 
-  handleClickToDeleteSurvey = (id) => {
-    this.props.firestore.delete({ collection: "surveys", doc: id });
+  handleClickToDeleteSurvey = () => {
+    this.props.firestore.delete({ collection: "surveys", doc: this.state.selectedSurvey.id });
     this.setState({
       selectedSurvey: null,
     });
   };
 
   handleEditSurvey = (id) => {
-    this.setState({editSurveyFormVisible: false, selectedSurvey: null});
+    this.setState({editSurveyFormVisible: false});
     this.handleSelectingSurvey(id);
   };
 
