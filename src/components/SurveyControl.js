@@ -5,7 +5,7 @@ import { withFirestore, isLoaded } from "react-redux-firebase";
 import CreateSurveyForm from "./CreateSurveyForm";
 import SurveyList from "./SurveyList";
 import SurveyResult from "./SurveyResult";
-//import EditSurveyForm from "./EditSurveyForm";
+import EditSurveyForm from "./EditSurveyForm";
 import Survey from "./Survey";
 
 class SurveyControl extends React.Component {
@@ -43,9 +43,25 @@ class SurveyControl extends React.Component {
     })
   }
 
-  //handleClickToDeleteSurvey = () => {};
-  //handleEditSurvey = () => {};
-  //handleClickToEditSurvey = () => {};
+  handleViewSurveyResponseClick = () => {
+    this.setState({surveyResultsVisible: true});
+  }
+
+  handleClickToDeleteSurvey = (id) => {
+    this.props.firestore.delete({ collection: "surveys", doc: id });
+    this.setState({
+      selectedSurvey: null,
+    });
+  };
+
+  handleEditSurvey = (id) => {
+    this.setState({editSurveyFormVisible: false, selectedSurvey: null});
+    this.handleSelectingSurvey(id);
+  };
+
+  handleClickToEditSurvey = () => {
+    this.setState({editSurveyFormVisible: true});
+  };
   
   handleClickToCreateSurvey = () => {
     this.setState({createSurveyFormVisible: true});
@@ -59,7 +75,7 @@ class SurveyControl extends React.Component {
 
   setVisibleComponent = () => {
     if (this.state.editSurveyFormVisible){
-      //return editSurveyForm
+      return (<EditSurveyForm survey={this.state.selectedSurvey} onCancelClick={this.handleCancelClick} onEditSurveyFormSubmission={this.handleEditSurvey}/>);
     } else if (this.state.surveyResultsVisible) {
       return (
         <>
@@ -71,13 +87,18 @@ class SurveyControl extends React.Component {
       return (
         <Survey
           survey={this.state.selectedSurvey}
+          onCancelClick={this.handleCancelClick}
           onSurveyResponseSubmit={this.handleAddingSurveyResponse}
+          onViewResponsesClick={this.handleViewSurveyResponseClick}
+          onDeleteSurveyClick={this.handleClickToDeleteSurvey}
+          onEditSurveyClick={this.handleClickToEditSurvey}
         />
       );
     } else if (this.state.createSurveyFormVisible) {
       return (
         <CreateSurveyForm
           onNewSurveyCreation={this.handleAddingNewSurvey}
+          onCancelClick={this.handleCancelClick}
         />
       );
     } else {

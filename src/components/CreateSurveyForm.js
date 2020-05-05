@@ -28,32 +28,39 @@ function CreateSurveyForm(props) {
   return (
     <>
       <h2>Make your own Survey!</h2>
+      <button onClick={() => props.onCancelClick()}>Back</button>
       <hr />
       <form onSubmit={addNewSurveyToFireStore}>
+        <div className="form-group">
         <label>
           <b>Title </b>
         </label>
-        <input type="text" name="title" placeholder="survey title" />
-
+        <input className="form-control" type="text" name="title" placeholder="survey title" /><br />
+        </div>
+        <div className="form-group">
         <label>
           <b>Question 1 </b>
         </label>
-        <input type="text" name="q1" placeholder="first Question" />
-
+        <input className="form-control" type="text" name="q1" placeholder="first Question" /><br />
+        </div>
+        <div className="form-group">
         <label>
           <b>Question 2 </b>
         </label>
-        <input type="text" name="q2" placeholder="second Question" />
-
+        <input className="form-control" type="text" name="q2" placeholder="second Question" /><br />
+        </div>
+        <div className="form-group">
         <label>
           <b>Question 3 </b>
         </label>
-        <input type="text" name="q3" placeholder="third Question" />
-
+        <input className="form-control" type="text" name="q3" placeholder="third Question" /><br />
+        </div>
+        <div className="form-group">
         <label>
           <b>Question 4 </b>
         </label>
-        <input type="text" name="q4" placeholder="fourth Question" />
+        <input className="form-control" type="text" name="q4" placeholder="fourth Question" /><br />
+        </div>
         <button type='submit'>Add Survey</button>
       </form>
     </>
@@ -62,7 +69,8 @@ function CreateSurveyForm(props) {
 }
 
 CreateSurveyForm.propTypes = {
-  onNewSurveyCreation: PropTypes.func
+  onNewSurveyCreation: PropTypes.func,
+  onCancelClick: PropTypes.func,
 }
 
 export default CreateSurveyForm;
