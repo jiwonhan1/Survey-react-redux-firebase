@@ -13,7 +13,7 @@
 
 ## 1. User Flow
 
-This is a survey site that user is able to create new surveys while other users should have the ability to fill out those surveys.
+This is a survey site that user is able to create new surveys while other users should have the ability to fill out those surveys. This provides full CRUD functioanlities and authentication.
 
 1. A user is able to create, update and delete a survey. All surveys should be stored in the database.
 2. A user is able to fill out and submit surveys. 
@@ -21,16 +21,14 @@ This is a survey site that user is able to create new surveys while other users 
 4. A user is able to sign up, sign in, and sign out.
 5. A user has their own dashboard which lists the surveys they've created.
 6. A user is able to see the combined data on a survey in their dashboard. For instance, if a survey provides a 1-5 rating, return an average rating for all surveys.
-
-Try using a library like D3 to visualize data from surveys. This is only recommended if you have time to spare, interest in data visualization, and are doing a week-long project.
+7. A user is able to take a survey and select their answers on slider bar.
+8. A user is able to view survey responses based on firestore data : total number of reponses, average answer. Result page also provide a gragh that visualizes data.
 
 ### Parking lot 
-1. A user has their own dashboard which lists the surveys they've created.
-2. User can choose from multiple different form types
-3. Display indicates whether a user has already taken a survey
-4. CSS styling
-5. Shows different types of data from surveys, so maybe median value or standard deviations from the mean etc.
-
+1. User can choose from multiple different form types
+2. Display indicates whether a user has already taken a survey
+3. UI
+4. Shows different types of data from surveys, so maybe median value or standard deviations from the mean etc.
 
 ### Diagram
 
@@ -57,11 +55,26 @@ Try using a library like D3 to visualize data from surveys. This is only recomme
 
 ### Sreenshot
 
+1. Main Page
+<img src="src/img/main.png" width="600px" />
+
+2. Create Page
+<img src="src/img/create.png" width="600px" />
+
+3. Survey Page 
+<img src="src/img/slider.png" width="600px" />
+
+4. Survey Result Page
+<img src="src/img/resultpage1.png" width="600px" />
+
+5. Survey Result Page
+<img src="src/img/result2.png" width="600px" />
+
 ### What's Included
 
 ```bash 
 |-- _tests_ 
-|-- actions :
+|-- actions 
 |-- components :
 |   |-- App.jsx
 |   |   |-- Header/SurveryControl/Footer
@@ -70,14 +83,21 @@ Try using a library like D3 to visualize data from surveys. This is only recomme
 |   |-- EditSurveryFrom.js
 |   |-- Footer.js
 |   |-- Header.js
-|   |-- Survey.js
+|   |-- MySurvey.js
+|   |-- SignInForm.js
+|   |-- SignOutButton.js
 |   |-- SurveyCard.js
-|   |-- SurveyControl.js
+|   |-- Survey.css
+|   |-- Survey.js
+|   |-- Survey.css
+|   |-- SurveyCard.js
+|   |-- SurveyChart.js
 |   |-- SurveyList.js
 |   |-- SurveyResult.js
 |-- reducers :
 |   |   |-- index.js
 |-- firebase.js
+|-- history.js
 |-- index.jsx
 ```
 
@@ -104,7 +124,6 @@ Try using a library like D3 to visualize data from surveys. This is only recomme
   $ npm start
 ```
 Now, it will automatically open http://localhost:3000 and show you survey site.
-
 
 ### Packages used
 

@@ -32,8 +32,8 @@ function SurveyResult(props) {
         );
         console.log("user responses ", userResponses);
         //sort responses by timeSubmitted
-    const testTimestamp = userResponses[userResponses.length - 1].timeSubmitted;
-    console.log ("This is how to access testTimeStamp: seconds ",testTimestamp.seconds);
+    // const testTimestamp = userResponses[userResponses.length - 1].timeSubmitted;
+    // console.log ("This is how to access testTimeStamp: seconds ",testTimestamp.seconds);
 
     // console.log("user time seconds ", userResponses[userResponses.length - 1].timeSubmitted.getSeconds())
 
@@ -61,11 +61,7 @@ function SurveyResult(props) {
     const r2 = getAverageResponse("r2", relevantResponses);
     const r3 = getAverageResponse("r3", relevantResponses);
     const r4 = getAverageResponse("r4", relevantResponses);
-
-
-
-  
-
+    
     return (
       <>
         <h1>{survey.title}</h1>
@@ -83,7 +79,7 @@ function SurveyResult(props) {
         <p className="lead">{survey.q4}</p>
         <p> Average answer: {getAverageResponse("r4", relevantResponses)}</p>
         <br />
-        <div style={{ display: "flex", maxWidth: 1000 }}>
+        <div style={{ display: "flex", maxWidth: 1000, marginLeft: "50px" }}>
           <Chart
             width={1000}
             height={480}
