@@ -48,6 +48,12 @@ hr {
   padding: 0.5%;
   text-align: center;
   margin-bottom: 3%;
+  display: inline-block;
+}
+
+.header li {
+  list-style-type: none;
+  margin-left: 350%;
 }
 
 .footer {
