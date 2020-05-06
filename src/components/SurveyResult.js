@@ -4,6 +4,8 @@ import { useFirestoreConnect, isLoaded, isEmpty } from "react-redux-firebase";
 import { useSelector } from "react-redux";
 import SurveyChart from './SurveyChart';
 import { Chart } from "react-google-charts";
+import firebase from "firebase";
+
 
 
 
@@ -11,12 +13,38 @@ import { Chart } from "react-google-charts";
 function SurveyResult(props) {
   const { survey } = props;
   useFirestoreConnect([{ collection: "responses" }]);
+
   const responses = useSelector((state) => state.firestore.ordered.responses);
+  console.log("response ", responses);
 
   if (isLoaded(responses)) {
     const relevantResponses = responses.filter(
       (response) => response.surveyId === survey.id
     );
+
+    console.log("relevent response ", relevantResponses); 
+
+    // function getUserResponse(propertyKey, ){
+      const user = firebase.auth().currentUser;
+
+        const userResponses = responses.filter(
+          (response) => response.userId === user.uid
+        );
+        console.log("user responses ", userResponses);
+        //sort responses by timeSubmitted
+    const testTimestamp = userResponses[userResponses.length - 1].timeSubmitted;
+    console.log ("This is how to access testTimeStamp: seconds ",testTimestamp.seconds);
+
+    // console.log("user time seconds ", userResponses[userResponses.length - 1].timeSubmitted.getSeconds())
+
+
+
+    //UserResponses.timeSubmitted.seconds =  1588801767 value for time object at 3:06 pm
+    // 1588802864 value for time object at 3:08 pm
+
+    //
+            // if the user has taken this survey more than once it will return more than one property for r1, r2 etc
+    // }
 
     function getAverageResponse(propertyKey, responseArray) {
       let sum = 0;
@@ -54,7 +82,7 @@ function SurveyResult(props) {
         <br />
         <p className="lead">{survey.q4}</p>
         <p> Average answer: {getAverageResponse("r4", relevantResponses)}</p>
-
+        <br />
         <div style={{ display: "flex", maxWidth: 1000 }}>
           <Chart
             width={1000}
@@ -63,25 +91,26 @@ function SurveyResult(props) {
             loader={<div>Loading Chart</div>}
             data={[
               [
-                "Survey Name *",
+                `${survey.title}`,
                 "Your Response Value",
                 "Average Response Value"
               ],
 
-              [`${survey.q1}`, `${survey.a1}`, r1],
-              [`${survey.q2}`, `${survey.a2}`, r2],
-              [`${survey.q3}`, `${survey.a3}`, r3],
-              [`${survey.q4}`, `${survey.a4}`, r4],
+              [`${survey.q1}`, 3, r1],
+              [`${survey.q2}`, 3, r2],
+              [`${survey.q3}`, 3, r3],
+              [`${survey.q4}`, 3, r4],
             ]}
+
             options={{
-              title: "Population of Largest U.S. Cities",
+              title: "Current feelings",
               chartArea: { width: "50%" },
               hAxis: {
-                title: "Total Population",
+                title: "Survey Questions",
                 minValue: 0,
               },
               vAxis: {
-                title: "City",
+                title: "User Results",
               },
             }}
             legendToggle

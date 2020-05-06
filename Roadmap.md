@@ -25,8 +25,8 @@ Ranking
    - indicates if user is logged in // In header sign in button changes to sign out displays emal
    - Limit create Survey to Users. Designate which functionality is for signed in users
 2. Visualize Data
-  - inputs on sliders 
-  - Graphs for completed survey 
+  - inputs on sliders // Completed
+  - Graphs for completed survey // Completed except rendering specific user data
   - 
 4. 
 

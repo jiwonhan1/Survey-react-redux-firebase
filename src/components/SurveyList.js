@@ -14,11 +14,15 @@ function SurveyList(props){
   if (isLoaded(surveys)){
   return (
     <React.Fragment>
+      <br />
+      <br />
+      <h1><b>All surveys</b></h1>
       <hr/>
       {surveys.map((survey) => {
         return <SurveyCard
         survey={survey}
         whenSurveyClicked = {props.onSurveySelection}
+        key={survey.id}
         />
       })}
     </React.Fragment>

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 function SurveyCard(props){
   const { survey, whenSurveyClicked } = props;
-
+  console.log(survey);
   return (
     <React.Fragment>
       <div onClick={() => whenSurveyClicked(survey.id)}>

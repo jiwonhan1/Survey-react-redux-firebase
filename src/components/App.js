@@ -28,11 +28,11 @@ function App() {
 
   return (
     <Router history ={history}>
-      <div className="container">
-        <Header/>
-        <Main/>
-        <Footer/>
+       <Header/>
+       <div className="container">
+        <Main/>   
       </div>
+      <Footer/>
     </Router>
   );
 }

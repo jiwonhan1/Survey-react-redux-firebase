@@ -1,13 +1,23 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import SignOutButton from "./SignOutButton";
+import firebase from 'firebase/app';
+import "./App.css";
+
+const imgSize ={
+  width: "82px",
+  height: "60px"
+}
+
 
 function Header() {
   return (
+
+    
     <React.Fragment>
-      <div className="header">
-        <nav className="navbar nav-bar-expand-lg">
-          <h1>Survey</h1>
+
+        <nav className="navbar navbar-expand-md navbar-dark  bg-primary">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Online_Survey_Icon_or_logo.svg/1200px-Online_Survey_Icon_or_logo.svg.png" style= {imgSize}/>
           <ul className="navbar-nav">
             <li className="nav-item">
                 <NavLink exact="exact" className="nav-link" activeClassName="active" to="/">
@@ -18,32 +28,10 @@ function Header() {
               <SignOutButton />
             </li>
           </ul>
+          {/* <p>{firebase.auth().currentUser.email}</p> */}
         </nav>
-      </div>
     </React.Fragment>
   )
 }
 
 export default Header;
-
-
-
-
-
-// function Header() {
-//   return (
-//     <React.Fragment>
-//       <div className="header">
-//         <h1>Survey</h1>
-//         <button>
-//           <Link to='/'>Home</Link>
-//         </button>
-//         <button>
-//           <Link to="/signin">Sign In</Link>
-//         </button>
-//       </div>
-//     </React.Fragment>
-//   )
-// }
-
-// export default Header;

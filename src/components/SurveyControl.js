@@ -7,6 +7,7 @@ import SurveyList from "./SurveyList";
 import SurveyResult from "./SurveyResult";
 import EditSurveyForm from "./EditSurveyForm";
 import Survey from "./Survey";
+import MySurveys from "./MySurveys";
 
 class SurveyControl extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ class SurveyControl extends React.Component {
       selectedSurvey: null,
       respondToSurveyFormVisible: false,
       surveyResultsVisible: false,
+      mySurveysVisible: false,
     };
   }
 
@@ -47,6 +49,10 @@ class SurveyControl extends React.Component {
     this.setState({surveyResultsVisible: true});
   }
 
+  handleClickToViewMySurveys = () => {
+    this.setState({mySurveysVisible: true});
+  }
+
   handleClickToDeleteSurvey = () => {
     this.props.firestore.delete({ collection: "surveys", doc: this.state.selectedSurvey.id });
     this.setState({
@@ -69,7 +75,7 @@ class SurveyControl extends React.Component {
 
   handleCancelClick = () => {
     this.setState({
-      createSurveyFormVisible: false, editSurveyFormVisible:false, respondToSurveyFormVisible:false, selectedSurvey: null, surveyResultsVisible:false,
+      createSurveyFormVisible: false, editSurveyFormVisible:false, respondToSurveyFormVisible:false, selectedSurvey: null, surveyResultsVisible:false, mySurveysVisible:false,
     })
   }
 
@@ -101,10 +107,21 @@ class SurveyControl extends React.Component {
           onCancelClick={this.handleCancelClick}
         />
       );
+    } else if (this.state.mySurveysVisible) {
+      return (
+        <>
+          <button onClick={this.handleClickToCreateSurvey}>Make your own survey</button>
+          <MySurveys
+            onSurveySelection={this.handleSelectingSurvey}
+            onCancelClick={this.handleCancelClick}
+          />
+        </>
+      );
     } else {
       return (
         <>
           <button onClick={this.handleClickToCreateSurvey}>Make your own survey</button>
+          <button onClick={this.handleClickToViewMySurveys}>View your surveys</button>
           <SurveyList onSurveySelection={this.handleSelectingSurvey}/>
         </>
       )

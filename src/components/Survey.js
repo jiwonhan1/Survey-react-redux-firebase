@@ -1,17 +1,13 @@
 // rename possibly/ what does this control
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
-
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import Slider from '@material-ui/core/Slider';
-import Input from '@material-ui/core/Input';
-import {useFirestore } from "react-redux-firebase";
+import { useFirestore } from "react-redux-firebase";
+import firebase from "firebase";
+import "./Survey.css";
+
 
 function Survey(props) {
-  //const {survey} = props;
   const [surveyView, setSurveyView] = useState(false);
 
   const firestore = useFirestore();
@@ -23,8 +19,8 @@ function Survey(props) {
   const [ r2, setR2 ] = useState(0);
   const [ r3, setR3 ] = useState(0);
   const [ r4, setR4 ] = useState(0);
+
   const handleSlider1Change = (event, newValue) => {
-    
     setR1(newValue);
   } 
   const handleSlider2Change = (event, newValue) => {  
@@ -39,7 +35,8 @@ function Survey(props) {
 
   const marks = [
     {value: 0,
-    label: 0},
+    label: '0 = Not at all'
+    },
     {value: 1,
     label: '1'
     },
@@ -53,10 +50,11 @@ function Survey(props) {
       label: '4'
     },
     {value: 5,
-      label: '5'
+      label: '5 = Extremely'
     }
   ]
 
+const user = firebase.auth().currentUser;
   // if (survey is published ) { show this survey form, and show button to survey results } else { show buttons to edit/publish}
   function handleSurveyResponseSubmission(event) {
       event.preventDefault();
@@ -68,7 +66,10 @@ function Survey(props) {
         r4: parseInt(r4),
         surveyId: survey.id,
         timeSubmitted: firestore.FieldValue.serverTimestamp(),
+        userId: user.uid
       })
+    console.log(user);
+    console.log(user.uid);
     }
 
   if(surveyView) {
@@ -113,7 +114,6 @@ function Survey(props) {
           valueLabelDisplay="auto" 
           />
           <br />
-
           <label>
             <b>{survey.q3} </b>
           </label>
@@ -127,7 +127,6 @@ function Survey(props) {
           valueLabelDisplay="auto" 
           />
           <br />
-
           <label>
             <b>{survey.q4}</b>
           </label>
