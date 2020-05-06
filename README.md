@@ -1,7 +1,7 @@
 
 # Survey site :black_nib:
 
-#### An application that allows a user to complete a quiz or survey. 5.5.2020
+#### An application that allows a user to complete a quiz or survey. 5.5 - 5.6.2020
 
 #### By Jack Dunning, Krista Rutz, Steven Fleming and Jiwon Han
 
