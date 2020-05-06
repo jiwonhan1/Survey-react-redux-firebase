@@ -71,21 +71,6 @@ function Survey(props) {
       })
     }
 
-    // Adding dynamic view to the value of the slider
-
-      // <p>
-      //   Value: <span id="demo"></span>
-      // </p>;
-
-      //   <script>
-      //     let slider = document.getElementById("r1");
-      //     let output = document.getElementById("demo");
-      //     output.innerHTML = slider.value;
-      // slider.oninput = function() {
-      //       output.innerHTML = this.value;
-      // }
-      // </script>
-
   if(surveyView) {
     return (
       <React.Fragment>

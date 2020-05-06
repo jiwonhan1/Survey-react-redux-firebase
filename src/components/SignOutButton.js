@@ -26,10 +26,11 @@ function SignOutButton() {
       </NavLink>
     )
   }
-  if (isLoaded(auth) && auth.currentUser != null) {
-    var user = auth.currentUser;return (
-        <button className="btn btn-secondary">Sign Out</button>
-    ) {use.r.email}
+  if (isLoaded(auth) && auth.currentUser != null) {return (
+        <but
+      <>ton className="btn btn-secondary">Sign Out</button>
+        se.r.email}
+      </>
   }
 }
 

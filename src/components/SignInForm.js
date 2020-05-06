@@ -1,7 +1,8 @@
 import React from "react";
 import firebase from 'firebase/app';
 
-function Signin(){  
+function SignInForm(){  
+
 // Create an account
   function createAccount(event) {
     event.preventDefault();
@@ -33,38 +34,79 @@ function Signin(){
     });
   }
 
-  return (
-    <React.Fragment>
-      <h1>Create an Account</h1>
-      <form onSubmit={createAccount}>
-        <input
-          type='text'
-          name='email'
-          placeholder='email' />
-        <input
-          type='password'
-          name='password'
-          placeholder='Password' />
-        <button type='submit'>Sign up</button>
-      </form>
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      return (
+        <>
+          <h1>Sign Out</h1>
+          <button onClick={doSignOut}>Sign out</button>
+        </>
+      )
+    } else {
+      return (
+        <React.Fragment>
+          <h1>Create an Account</h1>
+          <form onSubmit={createAccount}>
+            <input
+              type='text'
+              name='email'
+              placeholder='email' />
+            <input
+              type='password'
+              name='password'
+              placeholder='Password' />
+            <button type='submit'>Sign up</button>
+          </form>
+          
+          <h1>Sign In</h1>
+          <form onSubmit={doSignIn}>
+            <input
+              type='text'
+              name='signinEmail'
+              placeholder='email' />
+            <input
+              type='password'
+              name='signinPassword'
+              placeholder='Password' />
+            <button type='submit'>Sign in</button>
+          </form>
+        </React.Fragment>
+      )
+    }
+  });
+
+  // return (
+  //   <React.Fragment>
+  //     <h1>Create an Account</h1>
+  //     <form onSubmit={createAccount}>
+  //       <input
+  //         type='text'
+  //         name='email'
+  //         placeholder='email' />
+  //       <input
+  //         type='password'
+  //         name='password'
+  //         placeholder='Password' />
+  //       <button type='submit'>Sign up</button>
+  //     </form>
       
-      <h1>Sign In</h1>
-      <form onSubmit={doSignIn}>
-        <input
-          type='text'
-          name='signinEmail'
-          placeholder='email' />
-        <input
-          type='password'
-          name='signinPassword'
-          placeholder='Password' />
-        <button type='submit'>Sign in</button>
-      </form>
+  //     <h1>Sign In</h1>
+  //     <form onSubmit={doSignIn}>
+  //       <input
+  //         type='text'
+  //         name='signinEmail'
+  //         placeholder='email' />
+  //       <input
+  //         type='password'
+  //         name='signinPassword'
+  //         placeholder='Password' />
+  //       <button type='submit'>Sign in</button>
+  //     </form>
       
-      <h1>Sign Out</h1>
-      <button onClick={doSignOut}>Sign out</button>
-    </React.Fragment>
-  );
+  //     <h1>Sign Out</h1>
+  //     <button onClick={doSignOut}>Sign out</button>
+  //   </React.Fragment>
+  // );
 }
 
-export default Signin
+export default SignInForm

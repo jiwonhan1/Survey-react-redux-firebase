@@ -28,7 +28,7 @@ Try using a library like D3 to visualize data from surveys. This is only recomme
 1. A user has their own dashboard which lists the surveys they've created.
 2. Visualize data from surveys
 3. User can choose from multiple different form types
-4. Dynamically shows input from sliders. i.e. As you move the bar it tells you what the value is
+4. Dynamically shows input from sliders. i.e. As you move the bar it tells you what the value is - completed
 5. Display indicates whether a user has already taken a survey
 6. CSS styling
 7. Shows different types of data from surveys, so maybe median value or standard deviations from the mean etc.
