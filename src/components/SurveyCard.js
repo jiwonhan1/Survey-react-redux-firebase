@@ -3,15 +3,10 @@ import PropTypes from "prop-types";
 
 function SurveyCard(props){
   const { survey, whenSurveyClicked } = props;
-  console.log(survey);
   return (
     <React.Fragment>
       <div onClick={() => whenSurveyClicked(survey.id)}>
-      <h1><small>survey:</small> {survey.title}</h1>
-      {/* <p>{survey.q1}</p>
-      <p>{survey.q2}</p>
-      <p>{survey.q3}</p>
-      <p>{survey.q4}</p> */}
+      <h3>{survey.title}</h3>
       <hr /> 
       </div>
     </React.Fragment>

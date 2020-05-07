@@ -7,24 +7,13 @@ import SignInForm from "./SignInForm";
 import { Router, Route, Switch } from 'react-router-dom';
 import history from '../history';
 import firebase from "firebase";
+import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
+import { useFirebase, isLoaded, isEmpty } from 'react-redux-firebase'
 
 function App() {
-
-  function initApp() {
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (user) {
-        var displayName = user.displayName;
-        var email = user.email;
-        var emailVerified = user.emailVerified;
-        var photoURL = user.photoURL;
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-        var providerData = user.providerData;
-      }
-    });
-  }
-
-  initApp();
+  const firebase = useFirebase()
+  const auth = useSelector(state => state.firebase.auth)
 
   return (
     <Router history ={history}>
@@ -36,6 +25,15 @@ function App() {
     </Router>
   );
 }
+
+const enhance = connect(
+  // Map redux state to component props
+  ({ firebase: { auth, profile } }) => ({
+    auth,
+    profile
+  })
+)
+enhance(App)
 
 export default App;
 

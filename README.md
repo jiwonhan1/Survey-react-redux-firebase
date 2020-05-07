@@ -38,6 +38,7 @@ This is a survey site that user is able to create new surveys while other users 
 |   |-- r4
 |   |-- surveyId
 |   |-- timeSubmitted
+|   |-- userId
 |-- surveys :
 |   |-- q1
 |   |-- q2
@@ -45,6 +46,7 @@ This is a survey site that user is able to create new surveys while other users 
 |   |-- q4
 |   |-- timeSubmitted
 |   |-- title
+|   |-- userId
 ```
 
 ### Sreenshot

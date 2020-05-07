@@ -1,6 +1,8 @@
 import React from "react";
 import firebase from 'firebase/app';
 import {isLoaded} from "react-redux-firebase";
+import swal from 'sweetalert2';
+import {NavLink} from "react-router-dom";
 
 function SignInForm(){  
   const auth = firebase.auth();
@@ -9,10 +11,18 @@ function SignInForm(){
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    firebase.auth().createUserWithEmailAndPassword(email, password).then(function () {
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(
+      function () {
       console.log("successfully signed up!");
-    }).catch(function (error) {
-      console.log(error.message);
+      swal.fire(
+        'Successfully signed up!',
+      )
+    }
+    )
+    .catch(function (error) {
+      swal.fire(
+        error.message,
+      )
     });
   }
   // Log into the account
@@ -20,36 +30,32 @@ function SignInForm(){
     event.preventDefault();
     const email = event.target.signinEmail.value;
     const password = event.target.signinPassword.value;
-
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-  .then(function() {
-    // Existing and future Auth states are now persisted in the current
-    // session only. Closing the window would clear any existing state even
-    // if a user forgets to sign out.
-    // ...
-    // New sign-in will be persisted with session persistence.
-    firebase.auth().signInWithEmailAndPassword(email, password).then(function() {
-      console.log("Successfully signed in!", firebase.auth().currentUser);
-    }).catch(function(error) {
-      console.log(error.message);
+    .then(function() {
+      firebase.auth().signInWithEmailAndPassword(email, password).then(function() {
+        console.log("Successfully signed in!", firebase.auth().currentUser);
+        swal.fire(
+          'Successfully signed in!',
+        )
+      }).catch(function(error) {
+        swal.fire(
+          error.message,
+        );
+      });
+    })
+    .catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
     });
-  })
-  .catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-  });
-
-    // firebase.auth().signInWithEmailAndPassword(email, password).then(function() {
-    //   console.log("Successfully signed in!", firebase.auth().currentUser);
-    // }).catch(function(error) {
-    //   console.log(error.message);
-    // });
   }
   // Sign out of the account
   function doSignOut() {
     firebase.auth().signOut().then(function() {
       console.log("Successfully signed out!");
+      swal.fire(
+        'Successfully signed out!',
+      )
     }).catch(function(error) {
       console.log(error.message);
     });
@@ -68,6 +74,11 @@ function SignInForm(){
         <>
           <h1>Sign Out</h1>
           <button onClick={doSignOut}>Sign out</button>
+          <br />
+          <h1>Go to surveys</h1>
+          <NavLink exact className="nav-link" activeClassName="active" to="/">
+            <button>Home</button>
+          </NavLink>
         </>
       )
     } else {

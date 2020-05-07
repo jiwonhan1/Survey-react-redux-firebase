@@ -6,30 +6,18 @@ import { useSelector } from "react-redux";
 
 function SignOutButton() {
   const auth = firebase.auth();
-  //const reduxUser = useSelector(state => state.auth.currentUser);
-  
-  // const userLoggedIn = firebase.auth().onAuthStateChanged(function(user) {
-  //   if (user) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // });
-  const loggedIn = auth.onAuthStateChanged(function(user) {
-    if (user) {
-      return true;
-    } else return false;
-  })
   
   if(!isLoaded(auth)){
     return (
-      <button className="btn btn-secondary">Register</button>
+      <button className="btn btn-secondary">Loading...</button>
     )
   }
   if (isLoaded(auth)) {
     if (auth.currentUser) {
       return (
-          <button className="btn btn-secondary">Sign Out</button>
+        <NavLink exact className="nav-link" activeClassName="active" to="/signin">
+          <button className="btn">Account</button>
+        </NavLink>
       )
     } else {
       return (

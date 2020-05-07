@@ -11,6 +11,7 @@ const imgSize ={
 
 
 function Header() {
+  // console.log(firebase.auth().currentUser.uid)
   return (
 
     
