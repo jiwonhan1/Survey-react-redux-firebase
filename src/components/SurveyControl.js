@@ -39,10 +39,9 @@ class SurveyControl extends React.Component {
         q2: survey.get("q2"),
         q3: survey.get("q3"),
         q4: survey.get("q4"),
+        userId: survey.get("userId"),
         id: survey.id,
-        userId: survey.userId,
       }
-      console.log(firestoreSurvey);
       this.setState({ selectedSurvey: firestoreSurvey });
     })
   }
