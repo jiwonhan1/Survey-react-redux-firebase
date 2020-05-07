@@ -6,7 +6,8 @@ function SurveyCard(props){
   return (
     <React.Fragment>
       <div onClick={() => whenSurveyClicked(survey.id)}>
-      <h3>{survey.title}</h3>
+      <h2>{survey.title}</h2>
+      {/* <h4>{survey.purpose}</h4> */}
       <hr /> 
       </div>
     </React.Fragment>

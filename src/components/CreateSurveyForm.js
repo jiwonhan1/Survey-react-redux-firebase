@@ -15,6 +15,7 @@ function CreateSurveyForm(props) {
 
         return firestore.collection("surveys").add({
             title: event.target.title.value,
+            purpose: event.target.purpose.value,
             q1: event.target.q1.value,
             q2: event.target.q2.value,
             q3: event.target.q3.value,
@@ -39,7 +40,15 @@ function CreateSurveyForm(props) {
                             <b>Title
                             </b>
                         </label>
-                        <input className="form-control" type="text" name="title" placeholder="survey title"/>
+                        <input className="form-control" type="text" name="title" placeholder="Survey title"/>
+                        <br/>
+                    </div>
+                    <div className="form-group">
+                        <label>
+                            <b>Purpose of the survery
+                            </b>
+                        </label>
+                        <textarea className="form-control" type="text" name="purpose" placeholder="Purpose of the survery"/>
                         <br/>
                     </div>
                     <div className="form-group">
@@ -47,7 +56,7 @@ function CreateSurveyForm(props) {
                             <b>Question 1
                             </b>
                         </label>
-                        <input className="form-control" type="text" name="q1" placeholder="first Question"/>
+                        <input className="form-control" type="text" name="q1" placeholder="First Question"/>
                         <br/>
                     </div>
                     <div className="form-group">
@@ -55,7 +64,7 @@ function CreateSurveyForm(props) {
                             <b>Question 2
                             </b>
                         </label>
-                        <input className="form-control" type="text" name="q2" placeholder="second Question"/>
+                        <input className="form-control" type="text" name="q2" placeholder="Second Question"/>
                         <br/>
                     </div>
                     <div className="form-group">
@@ -63,7 +72,7 @@ function CreateSurveyForm(props) {
                             <b>Question 3
                             </b>
                         </label>
-                        <input className="form-control" type="text" name="q3" placeholder="third Question"/>
+                        <input className="form-control" type="text" name="q3" placeholder="Third Question"/>
                         <br/>
                     </div>
                     <div className="form-group">
@@ -71,7 +80,7 @@ function CreateSurveyForm(props) {
                             <b>Question 4
                             </b>
                         </label>
-                        <input className="form-control" type="text" name="q4" placeholder="fourth Question"/>
+                        <input className="form-control" type="text" name="q4" placeholder="Fourth Question"/>
                         <br/>
                     </div>
                     <button type="submit">Add Survey</button>

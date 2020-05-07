@@ -40,7 +40,9 @@ class SurveyControl extends React.Component {
         q3: survey.get("q3"),
         q4: survey.get("q4"),
         id: survey.id,
+        userId: survey.userId,
       }
+      console.log(firestoreSurvey);
       this.setState({ selectedSurvey: firestoreSurvey });
     })
   }
@@ -90,6 +92,7 @@ class SurveyControl extends React.Component {
         </>
         )
     } else if (this.state.selectedSurvey != null){
+      console.log(this.state.selectedSurvey.userId)
       return (
         <Survey
           survey={this.state.selectedSurvey}

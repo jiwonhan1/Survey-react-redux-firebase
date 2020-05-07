@@ -74,7 +74,7 @@ function Survey(props) {
     if(user == null){
           console.log("user is not signed in and didn't create the form");
     }
-    else if (user.uid == survey.uid){
+    else if (user.uid == survey.userId){
       console.log("Current User Created form")
     }
     else {
@@ -82,6 +82,9 @@ function Survey(props) {
     }
   }
 
+  
+console.log("Id of user who created form", survey.userId);
+console.log("current user's id", user.uid)
 
   // if (survey is published ) { show this survey form, and show button to survey results } else { show buttons to edit/publish}
   function handleSurveyResponseSubmission(event) {
@@ -181,6 +184,7 @@ function Survey(props) {
       <>
         <button onClick={() => props.onCancelClick()}>&larr; Back</button>
         <h1>{survey.title}</h1>
+        <h3>{survey.purpose}</h3>
         <button onClick={() => setSurveyView(!surveyView)}>Take survey</button>
         <br />
         <br />

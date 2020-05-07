@@ -10,7 +10,7 @@ function MySurveys(props) {
             collection: 'surveys'
         }])
     console.log(firebase.auth().currentUser.uid)
-    //console.log(currentUser.)
+    console.log(firebase.auth().currentUser);
     
     const surveys = useSelector(state => state.firestore.ordered.surveys)
     console.log(surveys);
